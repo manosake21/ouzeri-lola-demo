@@ -1,7 +1,208 @@
-<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ouzerie Lola</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#edf0e8;color:#263027}header{padding:26px 7%}.hero{padding:95px 7%;background:#29483d;color:white}.hero h1{font-size:clamp(46px,8vw,86px);max-width:850px}.hero p{max-width:650px;font-size:20px;line-height:1.6}.cta{display:inline-block;padding:14px 22px;background:#e5bd63;color:#213126;text-decoration:none;border-radius:999px;font-weight:700}.grid{padding:60px 7%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:white;padding:30px;border-radius:18px}.demo{font-size:12px;opacity:.65}footer{padding:40px 7%;background:#1e3028;color:white}</style><style>.visit-cta{padding:56px 24px;max-width:900px;margin:auto}.visit-cta div{display:flex;gap:12px;flex-wrap:wrap}.visit-cta a{margin-top:8px}.visit-cta h2{margin-bottom:12px}</style></head><body><header><strong>OUZERIE LOLA</strong></header><section class="hero"><div class="demo"></div><h1>Ούζο, μεζές, παρέα.</h1><p>Ένα digital home που μετατρέπει την ατμόσφαιρα της ούζερι σε μια καθαρή, εύχρηστη online εμπειρία.</p><a class="cta" href="tel:+302310276201">Call 2310 276201</a></section><section class="grid"><div class="card"><h2>Μεζέδες</h2><p>Make the menu easy to explore before the visit.</p></div><div class="card"><h2>Location</h2><p>Agapinou 10, Thessaloniki 546 21</p></div><div class="card"><h2>Brand</h2><p>A stronger standalone presence beyond third-party listings.</p></div></section><footer><strong>OUZERIE LOLA</strong><p>2310 276201</p><div class="demo"></div></footer>
-<section id="contact" style="padding:2rem 1.25rem;max-width:900px;margin:0 auto">
-  <h2>Επικοινωνία</h2>
-  <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310276201">+30 231 027 6201</a></p>
-  
-</section>
-<section id="visit" class="visit-cta"><h2>Μια στάση που αξίζει.</h2><p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p><div><a href="https://maps.google.com/?cid=16327945083376354330" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a><a href="tel:2310276201">Κάλεσε · 231 027 6201</a></div></section></body></html>
+<!doctype html>
+<html lang="el">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ouzerie Lola</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --primary:#29483d;
+            --secondary:#1e3028;
+            --accent:#e5bd63;
+            --bg:#f7f7f7;
+            --text:#263027;
+            --white:#fff;
+        }
+        *,::before,::after{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family:'Roboto',system-ui,sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.5;
+        }
+        a{color:inherit;text-decoration:none}
+        header{
+            padding:1rem 5%;
+            background:var(--primary);
+            color:var(--white);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        header strong{
+            font-family:'Playfair Display',serif;
+            font-size:1.5rem;
+            letter-spacing:0.05em;
+        }
+        /* Hero */
+        .hero{
+            position:relative;
+            min-height:70vh;
+            background:url('https://images.unsplash.com/photo-1582719478250-3c2c2c8c5b2c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:var(--white);
+        }
+        .hero::after{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(180deg,rgba(41,72,61,.7),rgba(30,48,40,.9));
+        }
+        .hero-content{
+            position:relative;
+            max-width:90%;
+            padding:2rem;
+        }
+        .hero h1{
+            font-family:'Playfair Display',serif;
+            font-size:clamp(2.5rem,8vw,5rem);
+            margin:0 0 .5rem;
+        }
+        .hero p{
+            font-size:1.125rem;
+            margin:0 0 1.5rem;
+        }
+        .cta{
+            display:inline-block;
+            padding:.75rem 1.5rem;
+            background:var(--accent);
+            color:#213126;
+            border-radius:999px;
+            font-weight:500;
+            transition:background .3s;
+        }
+        .cta:hover,.cta:focus{background:#d4a44e}
+        /* Greek key decorative */
+        .greek-key{
+            width:100%;
+            height:20px;
+            background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="20"><path d="M0,10 L10,0 L20,10 L30,0 L40,10" stroke=%22%23e5bd63%22 fill=%22none%22 stroke-width=%222%22/></svg>') repeat-x;
+        }
+        /* Grid cards */
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:1.5rem;
+            padding:3rem 5%;
+        }
+        .card{
+            background:var(--white);
+            border-radius:12px;
+            padding:1.5rem;
+            box-shadow:0 2px 6px rgba(0,0,0,.1);
+        }
+        .card h2{
+            font-family:'Playfair Display',serif;
+            font-size:1.25rem;
+            margin:0 0 .5rem;
+            color:var(--primary);
+        }
+        .card p{
+            margin:0;
+            font-size:.95rem;
+        }
+        /* Contact & Visit sections */
+        .section{
+            max-width:800px;
+            margin:2rem auto;
+            padding:0 1.5rem;
+        }
+        .section h2{
+            font-family:'Playfair Display',serif;
+            font-size:1.75rem;
+            margin-bottom:.75rem;
+            color:var(--primary);
+        }
+        .section p,.section a{
+            font-size:1rem;
+        }
+        .visit-cta div{
+            display:flex;
+            flex-wrap:wrap;
+            gap:.75rem;
+            margin-top:.5rem;
+        }
+        .visit-cta a{
+            background:var(--primary);
+            color:var(--white);
+            padding:.5rem 1rem;
+            border-radius:6px;
+            transition:background .3s;
+        }
+        .visit-cta a:hover,.visit-cta a:focus{background:#1a261f}
+        /* Footer */
+        footer{
+            background:var(--secondary);
+            color:var(--white);
+            text-align:center;
+            padding:2rem 5%;
+        }
+        footer strong{
+            display:block;
+            font-family:'Playfair Display',serif;
+            font-size:1.25rem;
+            margin-bottom:.5rem;
+        }
+        /* Responsive */
+        @media(max-width:600px){
+            header{flex-direction:column;gap:.5rem}
+            .hero{min-height:50vh}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <strong>OUZERIE LOLA</strong>
+        <a class="cta" href="tel:+302310276201">Κλήση 2310 276201</a>
+    </header>
+
+    <section class="hero" aria-label="Καλωσόρισμα">
+        <div class="hero-content">
+            <h1>Ούζο, μεζές, παρέα.</h1>
+            <p>Ένα digital home που μετατρέπει την ατμόσφαιρα της ούζερι σε μια καθαρή, εύχρηστη online εμπειρία.</p>
+            <a class="cta" href="tel:+302310276201">Καλέστε μας</a>
+        </div>
+    </section>
+
+    <div class="greek-key" aria-hidden="true"></div>
+
+    <section class="grid" aria-label="Πληροφορίες">
+        <div class="card">
+            <h2>Μεζέδες</h2>
+            <p>Make the menu easy to explore before the visit.</p>
+        </div>
+        <div class="card">
+            <h2>Τοποθεσία</h2>
+            <p>Αγγέλου 10, Θεσσαλονίκη 546 21</p>
+        </div>
+        <div class="card">
+            <h2>Brand</h2>
+            <p>A stronger standalone presence beyond third‑party listings.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section" aria-label="Επικοινωνία">
+        <h2>Επικοινωνία</h2>
+        <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310276201">+30 231 027 6201</a></p>
+    </section>
+
+    <section id="visit" class="section visit-cta" aria-label="Πώς να μας βρείτε">
+        <h2>Μια στάση που αξίζει.</h2>
+        <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δείτε το σημείο και ελάτε να μας γνωρίσετε.</p>
+        <div>
+            <a href="https://maps.google.com/?cid=16327945083376354330" target="_blank" rel="noopener">Δείτε τη διαδρομή στο Google Maps</a>
+            <a href="tel:+302310276201">Κάλεσε · 231 027 6201</a>
+        </div>
+    </section>
+
+    <footer>
+        <strong>OUZERIE LOLA</strong>
+        <p>2310 276201</p>
+    </footer>
+</body>
+</html>
