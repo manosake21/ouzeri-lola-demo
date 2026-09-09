@@ -1,208 +1,268 @@
 <!doctype html>
 <html lang="el">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ouzerie Lola</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root{
-            --primary:#29483d;
-            --secondary:#1e3028;
-            --accent:#e5bd63;
-            --bg:#f7f7f7;
-            --text:#263027;
-            --white:#fff;
-        }
-        *,::before,::after{box-sizing:border-box}
-        body{
-            margin:0;
-            font-family:'Roboto',system-ui,sans-serif;
-            background:var(--bg);
-            color:var(--text);
-            line-height:1.5;
-        }
-        a{color:inherit;text-decoration:none}
-        header{
-            padding:1rem 5%;
-            background:var(--primary);
-            color:var(--white);
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-        header strong{
-            font-family:'Playfair Display',serif;
-            font-size:1.5rem;
-            letter-spacing:0.05em;
-        }
-        /* Hero */
-        .hero{
-            position:relative;
-            min-height:70vh;
-            background:url('https://images.unsplash.com/photo-1582719478250-3c2c2c8c5b2c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            color:var(--white);
-        }
-        .hero::after{
-            content:"";
-            position:absolute;
-            inset:0;
-            background:linear-gradient(180deg,rgba(41,72,61,.7),rgba(30,48,40,.9));
-        }
-        .hero-content{
-            position:relative;
-            max-width:90%;
-            padding:2rem;
-        }
-        .hero h1{
-            font-family:'Playfair Display',serif;
-            font-size:clamp(2.5rem,8vw,5rem);
-            margin:0 0 .5rem;
-        }
-        .hero p{
-            font-size:1.125rem;
-            margin:0 0 1.5rem;
-        }
-        .cta{
-            display:inline-block;
-            padding:.75rem 1.5rem;
-            background:var(--accent);
-            color:#213126;
-            border-radius:999px;
-            font-weight:500;
-            transition:background .3s;
-        }
-        .cta:hover,.cta:focus{background:#d4a44e}
-        /* Greek key decorative */
-        .greek-key{
-            width:100%;
-            height:20px;
-            background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="20"><path d="M0,10 L10,0 L20,10 L30,0 L40,10" stroke=%22%23e5bd63%22 fill=%22none%22 stroke-width=%222%22/></svg>') repeat-x;
-        }
-        /* Grid cards */
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-            gap:1.5rem;
-            padding:3rem 5%;
-        }
-        .card{
-            background:var(--white);
-            border-radius:12px;
-            padding:1.5rem;
-            box-shadow:0 2px 6px rgba(0,0,0,.1);
-        }
-        .card h2{
-            font-family:'Playfair Display',serif;
-            font-size:1.25rem;
-            margin:0 0 .5rem;
-            color:var(--primary);
-        }
-        .card p{
-            margin:0;
-            font-size:.95rem;
-        }
-        /* Contact & Visit sections */
-        .section{
-            max-width:800px;
-            margin:2rem auto;
-            padding:0 1.5rem;
-        }
-        .section h2{
-            font-family:'Playfair Display',serif;
-            font-size:1.75rem;
-            margin-bottom:.75rem;
-            color:var(--primary);
-        }
-        .section p,.section a{
-            font-size:1rem;
-        }
-        .visit-cta div{
-            display:flex;
-            flex-wrap:wrap;
-            gap:.75rem;
-            margin-top:.5rem;
-        }
-        .visit-cta a{
-            background:var(--primary);
-            color:var(--white);
-            padding:.5rem 1rem;
-            border-radius:6px;
-            transition:background .3s;
-        }
-        .visit-cta a:hover,.visit-cta a:focus{background:#1a261f}
-        /* Footer */
-        footer{
-            background:var(--secondary);
-            color:var(--white);
-            text-align:center;
-            padding:2rem 5%;
-        }
-        footer strong{
-            display:block;
-            font-family:'Playfair Display',serif;
-            font-size:1.25rem;
-            margin-bottom:.5rem;
-        }
-        /* Responsive */
-        @media(max-width:600px){
-            header{flex-direction:column;gap:.5rem}
-            .hero{min-height:50vh}
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ουζερί Lola – Ούζο, Μεζές, Παρέα</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+    --clr-primary:#2a453e;      /* deep teal */
+    --clr-accent:#cfa53a;       /* warm gold */
+    --clr-bg:#faf5e9;           /* parchment */
+    --clr-foreground:#2c2c2c;  /* dark text */
+    --clr-white:#fff;
+    --radius:8px;
+    --gap:1.5rem;
+    --font-sans:"Inter",system-ui,sans-serif;
+    --font-serif:"Playfair Display",serif;
+}
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    margin:0;
+    font-family:var(--font-sans);
+    background:var(--clr-bg);
+    color:var(--clr-foreground);
+    line-height:1.6;
+}
+a{
+    color:inherit;
+    text-decoration:none;
+}
+a:focus-visible,
+button:focus-visible{
+    outline:2px solid var(--clr-accent);
+    outline-offset:2px;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem clamp(1rem,5vw,2rem);
+    background:var(--clr-primary);
+    color:var(--clr-white);
+}
+header .logo{
+    font-family:var(--font-serif);
+    font-size:1.5rem;
+    letter-spacing:0.04em;
+}
+nav{
+    display:flex;
+    gap:var(--gap);
+}
+nav a{
+    font-weight:500;
+    padding:.25rem .5rem;
+    border-radius:4px;
+}
+nav a:hover,
+nav a:focus-visible{
+    background:rgba(255,255,255,.15);
+}
+nav .mobile-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:inherit;
+    cursor:pointer;
+}
+nav .mobile-toggle svg{
+    width:1.5rem;
+    height:1.5rem;
+}
+@media(max-width:768px){
+    nav{
+        position:absolute;
+        top:100%;
+        right:0;
+        background:var(--clr-primary);
+        flex-direction:column;
+        width:200px;
+        padding:1rem;
+        gap:0.75rem;
+        transform:translateX(100%);
+        transition:transform .3s ease;
+    }
+    nav.open{
+        transform:translateX(0);
+    }
+    nav .mobile-toggle{
+        display:block;
+    }
+}
+.hero{
+    position:relative;
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--clr-white);
+    overflow:hidden;
+    padding:2rem;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,var(--clr-primary) 0%,var(--clr-accent) 100%);
+    opacity:0.85;
+}
+.hero .content{
+    position:relative;
+    max-width:45ch;
+}
+.hero h1{
+    font-family:var(--font-serif);
+    font-size:clamp(2.5rem,10vw,5rem);
+    margin:0 0 .5rem;
+}
+.hero p{
+    font-size:1.125rem;
+    margin:0 0 1.5rem;
+}
+.btn{
+    display:inline-block;
+    padding:.75rem 1.5rem;
+    background:var(--clr-accent);
+    color:#21201c;
+    border-radius:999px;
+    font-weight:500;
+    transition:background .3s;
+}
+.btn:hover,
+.btn:focus-visible{
+    background:#b58a2e;
+}
+.decorative{
+    width:100%;
+    height:24px;
+    background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2224%22><path d=%22M0,12 L10,0 L20,12 L30,0 L40,12%22 stroke=%22%23cfa53a%22 fill=%22none%22 stroke-width=%222%22/></svg>') repeat-x;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:var(--gap);
+    padding:3rem clamp(1rem,5vw,2rem);
+}
+.card{
+    background:var(--clr-white);
+    border-radius:var(--radius);
+    padding:1.5rem;
+    box-shadow:0 2px 6px rgba(0,0,0,.07);
+}
+.card h2{
+    font-family:var(--font-serif);
+    font-size:1.25rem;
+    margin:0 0 .5rem;
+    color:var(--clr-primary);
+}
+.section{
+    max-width:800px;
+    margin:2rem auto;
+    padding:0 clamp(1rem,5vw,2rem);
+}
+.section h2{
+    font-family:var(--font-serif);
+    font-size:1.75rem;
+    margin-bottom:.75rem;
+    color:var(--clr-primary);
+}
+footer{
+    background:var(--clr-primary);
+    color:var(--clr-white);
+    text-align:center;
+    padding:2rem clamp(1rem,5vw,2rem);
+}
+footer .logo{
+    font-family:var(--font-serif);
+    font-size:1.25rem;
+    margin-bottom:.5rem;
+}
+@media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+        transition:none !important;
+    }
+}
+</style>
 </head>
 <body>
-    <header>
-        <strong>OUZERIE LOLA</strong>
-        <a class="cta" href="tel:+302310276201">Κλήση 2310 276201</a>
-    </header>
+<header>
+    <div class="logo">Ουζερί Lola</div>
+    <nav id="site-nav" aria-label="Κύρια πλοήγηση">
+        <button class="mobile-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Άνοιγμα/Κλείσιμο μενού">
+            <svg viewBox="0 0 100 80" fill="currentColor"><rect width="100" height="15"></rect><rect y="30" width="100" height="15"></rect><rect y="60" width="100" height="15"></rect></svg>
+        </button>
+        <a href="#hero">Αρχική</a>
+        <a href="#menu">Μεζέδες</a>
+        <a href="#location">Τοποθεσία</a>
+        <a href="#contact">Επικοινωνία</a>
+    </nav>
+</header>
 
-    <section class="hero" aria-label="Καλωσόρισμα">
-        <div class="hero-content">
+<main>
+    <section class="hero" id="hero" aria-label="Καλωσόρισμα">
+        <div class="content">
             <h1>Ούζο, μεζές, παρέα.</h1>
-            <p>Ένα digital home που μετατρέπει την ατμόσφαιρα της ούζερι σε μια καθαρή, εύχρηστη online εμπειρία.</p>
-            <a class="cta" href="tel:+302310276201">Καλέστε μας</a>
+            <p>Το digital home που φέρνει την ατμόσφαιρα της ουζερί στην οθόνη σας.</p>
+            <a class="btn" href="tel:+302310276201">Καλέστε μας</a>
         </div>
     </section>
 
-    <div class="greek-key" aria-hidden="true"></div>
+    <div class="decorative" aria-hidden="true"></div>
 
-    <section class="grid" aria-label="Πληροφορίες">
+    <section class="grid" id="menu" aria-label="Μεζέδες">
         <div class="card">
             <h2>Μεζέδες</h2>
-            <p>Make the menu easy to explore before the visit.</p>
+            <p>Ανακαλύψτε την ποικιλία των παραδοσιακών μεζέδων μας.</p>
+        </div>
+        <div class="card">
+            <h2>Ουζοποσία</h2>
+            <p>Δοκιμάστε τις καλύτερες επιλογές ουζού, κλασικές και σύγχρονες.</p>
         </div>
         <div class="card">
             <h2>Τοποθεσία</h2>
-            <p>Αγγέλου 10, Θεσσαλονίκη 546 21</p>
-        </div>
-        <div class="card">
-            <h2>Brand</h2>
-            <p>A stronger standalone presence beyond third‑party listings.</p>
+            <p>Αγγέλου 10, Θεσσαλονίκη 546 21</p>
         </div>
     </section>
 
-    <section id="contact" class="section" aria-label="Επικοινωνία">
+    <section class="section" id="location" aria-label="Πώς να μας βρείτε">
+        <h2>Βρείτε μας</h2>
+        <p>Η ουζερί βρίσκεται στην καρδιά της Θεσσαλονίκης, εύκολα προσβάσιμη με τα πόδια ή τα μέσα μαζικής μεταφοράς.</p>
+        <p>
+            <a class="btn" href="https://maps.google.com/?cid=16327945083376354330" target="_blank" rel="noopener">Δείτε τη διαδρομή</a>
+        </p>
+    </section>
+
+    <section class="section" id="contact" aria-label="Επικοινωνία">
         <h2>Επικοινωνία</h2>
         <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310276201">+30 231 027 6201</a></p>
     </section>
+</main>
 
-    <section id="visit" class="section visit-cta" aria-label="Πώς να μας βρείτε">
-        <h2>Μια στάση που αξίζει.</h2>
-        <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δείτε το σημείο και ελάτε να μας γνωρίσετε.</p>
-        <div>
-            <a href="https://maps.google.com/?cid=16327945083376354330" target="_blank" rel="noopener">Δείτε τη διαδρομή στο Google Maps</a>
-            <a href="tel:+302310276201">Κάλεσε · 231 027 6201</a>
-        </div>
-    </section>
+<footer>
+    <div class="logo">Ουζερί Lola</div>
+    <p>+30 231 027 6201</p>
+</footer>
 
-    <footer>
-        <strong>OUZERIE LOLA</strong>
-        <p>2310 276201</p>
-    </footer>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+    const nav = document.getElementById('site-nav');
+    const toggle = nav.querySelector('.mobile-toggle');
+    toggle.addEventListener('click',function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded',!expanded);
+        nav.classList.toggle('open');
+    });
+});
+</script>
 </body>
 </html>
